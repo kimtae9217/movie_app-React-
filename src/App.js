@@ -4,10 +4,11 @@ class App extends React.Component{
  state = {
    isLoading: true
  };
+ getMovies = async () => {
+   const movies = await axios.get("https://yts-proxy.nomadcoders1.now.sh/list_movies.json");
+ };
  componentDidMount(){
-   setTimeout(() => {
-     this.setState({ isLoading: false});
-   }, 6000);
+   this.getMovies();
  }
  render() { 
    const { isLoading } = this.state;
